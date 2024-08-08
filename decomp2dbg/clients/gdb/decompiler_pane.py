@@ -31,15 +31,15 @@ class DecompilerPane:
         try:
             resp = self.decompiler.decompile(rebased_pc)
         except OverflowError as e:
-            warn(
-                f"Decompiler failed to get a response from decompiler on "
-                f"{hex(rebased_pc) if isinstance(rebased_pc, int) else rebased_pc} with: {e}"
-                f", are you in a library function?"
-            )
+            # warn(
+            #     f"Decompiler failed to get a response from decompiler on "
+            #     f"{hex(rebased_pc) if isinstance(rebased_pc, int) else rebased_pc} with: {e}"
+            #     f", are you in a library function?"
+            # )
             return False
         except Exception as e:
-            warn(f"Decompiler failed to get a response from decompiler on "
-                 f"{hex(rebased_pc) if isinstance(rebased_pc,int) else rebased_pc} with: {e}")
+            # warn(f"Decompiler failed to get a response from decompiler on "
+            #      f"{hex(rebased_pc) if isinstance(rebased_pc,int) else rebased_pc} with: {e}")
             return False
 
         # set the decompilation for next use in display_pane
@@ -68,7 +68,7 @@ class DecompilerPane:
             return
 
         if not self.ready_to_display:
-            err("Unable to decompile function")
+            # err("Unable to decompile function")
             return
 
         # configure based on source config
